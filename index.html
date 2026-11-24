@@ -183,6 +183,39 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 .url{display:flex;gap:8px;align-items:center;background:var(--ivory);border:1px dashed var(--line2);border-radius:12px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;word-break:break-all;margin:10px 0 14px}
 .sub2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media (max-width: 900px){ .ck,.sub2{grid-template-columns:1fr} }
+.role{display:inline-flex;align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:.05em;border-radius:6px;padding:2px 7px;background:rgba(255,255,255,.12);color:#fff}
+.role.sup{background:var(--crimson-lt)}
+.who .st{font-size:11.5px;line-height:1.4;color:#AFC0DD;display:flex;gap:6px;align-items:center}
+.who .st i{width:8px;height:8px;border-radius:50%;background:#7F8FAE;flex:none}
+.who .st i.on{background:#3DDC97}
+.who .row{display:flex;gap:6px;flex-wrap:wrap}
+.who .row .sbtn{flex:1;padding:7px 8px;font-size:12px}
+.closedbar{display:flex;gap:10px;align-items:center;background:#FFF6E2;border:1px solid #F1DBA6;color:#6B4A07;border-radius:12px;padding:10px 14px;font-size:13px;margin-bottom:14px}
+.fldpw{position:relative}
+.fldpw button{position:absolute;right:6px;top:6px;height:32px;border:0;background:var(--sand);border-radius:8px;font-size:12px;font-weight:700;padding:0 10px;color:var(--ink2)}
+.ulist{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
+.ulist th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);background:var(--sand)}
+.ulist td{padding:11px 12px;border-bottom:1px solid var(--line3);vertical-align:middle}
+.ulist tr:last-child td{border-bottom:0}
+.ulist .nm{font-weight:700}
+.ulist .em{color:var(--muted);font-size:12.5px}
+.tag{display:inline-flex;font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 7px;background:var(--sand);color:var(--ink2);border:1px solid var(--line)}
+.tag.sup{background:#FDE7E9;color:#9C1C24;border-color:#F3C4C8}.tag.adm{background:#E6F0FF;color:#1F4E8C;border-color:#C9DBF5}
+.tag.off{background:#F1F2F5;color:#8794AB}.tag.wait{background:#FFF2D9;color:#8A5A00;border-color:#F1D79B}
+.acts{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap}
+.acts .btn{height:32px;font-size:12.5px;padding:0 10px;box-shadow:none}
+.switch{display:flex;align-items:center;gap:14px}
+.tg{appearance:none;width:54px;height:30px;border-radius:999px;border:0;background:#C6D0E0;position:relative;flex:none;transition:background .15s}
+.tg::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .15s}
+.tg[aria-pressed="true"]{background:#2A9174}.tg[aria-pressed="true"]::after{left:27px}
+.acc-big{font-size:18px;font-weight:800}
+.ucards{display:none}
+@media (max-width: 900px){ .closedbar{margin:12px 12px 0!important} }
+@media (max-width: 720px){
+  .ulist{display:none}
+  .ucards{display:flex;flex-direction:column;gap:10px}
+  .ucard{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+}
 .credit{text-align:center;padding:10px 20px 34px;color:var(--muted);font-size:13px;line-height:1.5}
 .credit img{width:46px;height:46px;object-fit:contain;display:block;margin:0 auto 10px}
 .credit b{display:block;color:var(--ink);font-size:14px;font-weight:700}
@@ -433,6 +466,7 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
       </div>
     </header>
 
+    <div class="closedbar" data-closedbar hidden style="margin:16px 28px 0">🔒 <span>Calendar editing is closed for admins right now. You can still view everything. Ask the super admin to open editing.</span></div>
     <main class="content" data-content>
       <div class="loading"><div class="spin dk"></div>Loading calendar…</div>
     </main>
@@ -466,6 +500,8 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     semak:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15.5l2 2 4-4"/></svg>',
     tarikh:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>',
     langgan:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>',
+    pengguna:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.6c2.6.2 4.6 2 5.3 5.4"/></svg>',
+    users:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.6c2.6.2 4.6 2 5.3 5.4"/></svg>',
     tapis:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>',
     tick:'<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>',
     lock:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
@@ -500,19 +536,47 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
   /* Mod pratonton (fail HTML sahaja): data dalam memori, PIN demo 2027 */
   var Mock = {
     muatData: function () { return JSON.parse(JSON.stringify(window.__PREVIEW_DATA)); },
-    logMasuk: function (pin) { if (String(pin) !== '2027') throw new Error('Invalid PIN. (Preview: use 2027)'); return { token: 'demo', nama: 'DEMO EDITOR' }; },
-    semakSesi: function (t) { return t === 'demo' ? { nama: 'DEMO EDITOR' } : null; },
+    // Preview accounts: super@kmb.demo / admin@kmb.demo — first password is the staff no. 1001 / 2002
+    _u: [{ nama: 'SURYANI BINTI SULONG', emel: 'super@kmb.demo', gaji: '1001', peranan: 'SUPER ADMIN', aktif: true, pw: '', terakhir: '' },
+         { nama: 'FARA AI\'NI JAMAL', emel: 'admin@kmb.demo', gaji: '2002', peranan: 'ADMIN', aktif: true, pw: '', terakhir: '' }],
+    _akses: { on: false, hingga: '', buka: false },
+    _tok: {},
+    _find: function (e) { return Mock._u.filter(function (u) { return u.emel === String(e || '').trim().toLowerCase(); })[0]; },
+    _prof: function (u, t) { return { token: t, nama: u.nama, emel: u.emel, peranan: u.peranan, pk: 'pk:' + u.emel, tukar: !u.pw, akses: Mock._ak() }; },
+    _ak: function () { var a = Mock._akses, k = new Date(); var now = k.getFullYear() + '-' + ('0' + (k.getMonth() + 1)).slice(-2) + '-' + ('0' + k.getDate()).slice(-2) + ' ' + ('0' + k.getHours()).slice(-2) + ':' + ('0' + k.getMinutes()).slice(-2); return { on: a.on, hingga: a.hingga, buka: a.on && (!a.hingga || now < a.hingga) }; },
+    _me: function (t, any) { var e = Mock._tok[t], u = e && Mock._find(e); if (!u || !u.aktif) throw new Error('Session expired. Please sign in again.'); if (!any && !u.pw) throw new Error('Please change your password first.'); return u; },
+    _sup: function (t) { var u = Mock._me(t); if (u.peranan !== 'SUPER ADMIN') throw new Error('Only a super admin can do this.'); return u; },
+    _list: function () { return { users: Mock._u.map(function (u) { return { nama: u.nama, emel: u.emel, gaji: u.gaji, peranan: u.peranan, aktif: u.aktif, tukar: !u.pw, terakhir: u.terakhir }; }), akses: Mock._ak() }; },
+    muatData: function () { var d = JSON.parse(JSON.stringify(window.__PREVIEW_DATA)); d.akses = Mock._ak(); return d; },
+    logMasuk: function (e, pw) { var u = Mock._find(e); if (!u || !u.aktif || String(pw) !== (u.pw || u.gaji)) throw new Error('Wrong email or password. (Preview: super@kmb.demo / 1001 or admin@kmb.demo / 2002)'); var t = 'tok' + Date.now(); Mock._tok[t] = u.emel; u.terakhir = 'just now'; return Mock._prof(u, t); },
+    semakSesi: function (t) { try { return Mock._prof(Mock._me(t, true), t); } catch (e) { return null; } },
+    logKeluar: function (t) { delete Mock._tok[t]; return true; },
+    tukarKataLaluan: function (t, lama, baru) { var u = Mock._me(t, true); if (String(lama) !== (u.pw || u.gaji)) throw new Error('Your current password is wrong.'); if (String(baru).length < 8) throw new Error('The new password needs at least 8 characters.'); if (!/[A-Za-z]/.test(baru) || !/[0-9]/.test(baru)) throw new Error('Use both letters and numbers in the new password.'); u.pw = String(baru); return Mock._prof(u, t); },
     simpanAcara: function (t, a) {
-      if (t !== 'demo') throw new Error('Session expired.');
-      var D = window.__PREVIEW_DATA, now = new Date().toISOString().slice(0, 16).replace('T', ' ');
-      var rec = { id: a.id || ('E' + Date.now()), tajuk: a.tajuk, mula: a.mula, tamat: a.tamat || a.mula, kat: a.kat, ket: a.ket || '', oleh: 'DEMO EDITOR', pada: now };
-      var i = D.acara.findIndex(function (x) { return x.id === rec.id; });
+      var u = Mock._me(t), sup = u.peranan === 'SUPER ADMIN', D = window.__PREVIEW_DATA, now = new Date().toISOString().slice(0, 16).replace('T', ' ');
+      if (!sup && !Mock._ak().buka) throw new Error('Calendar editing is closed for admins right now. Please contact the super admin.');
+      var i = D.acara.findIndex(function (x) { return x.id === a.id; }), old = i >= 0 ? D.acara[i] : null;
+      if (old && !sup && old.pk !== 'pk:' + u.emel) throw new Error('Admins can only change events they added.');
+      var rec = { id: a.id || ('E' + Date.now()), tajuk: a.tajuk, mula: a.mula, tamat: a.tamat || a.mula, kat: a.kat, ket: a.ket || '', oleh: u.nama, pada: now, pk: old ? old.pk : 'pk:' + u.emel, pemilik: old ? old.pemilik : u.nama };
       if (i >= 0) D.acara[i] = rec; else D.acara.push(rec);
       return Mock.muatData();
     },
     padamAcara: function (t, id) {
-      var D = window.__PREVIEW_DATA; D.acara = D.acara.filter(function (x) { return x.id !== id; }); return Mock.muatData();
-    }
+      var u = Mock._me(t), D = window.__PREVIEW_DATA, old = D.acara.filter(function (x) { return x.id === id; })[0];
+      if (u.peranan !== 'SUPER ADMIN') { if (!Mock._ak().buka) throw new Error('Calendar editing is closed for admins right now. Please contact the super admin.'); if (!old || old.pk !== 'pk:' + u.emel) throw new Error('Admins can only change events they added.'); }
+      D.acara = D.acara.filter(function (x) { return x.id !== id; }); return Mock.muatData();
+    },
+    senaraiPengguna: function (t) { Mock._sup(t); return Mock._list(); },
+    simpanPengguna: function (t, v) {
+      var me = Mock._sup(t), emel = String(v.emel || '').trim().toLowerCase();
+      if (!v.nama) throw new Error('Enter the full name.'); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emel)) throw new Error('Enter a valid email address.'); if (!v.gaji) throw new Error('Enter the staff number (No. Gaji).');
+      var other = Mock._find(emel); if (other && other.emel !== v.asal) throw new Error('This email already has an account.');
+      if (v.asal) { var u = Mock._find(v.asal); if (v.asal === me.emel && (v.peranan !== 'SUPER ADMIN' || v.aktif === false)) throw new Error('You cannot remove your own super admin access.'); u.nama = v.nama.toUpperCase(); u.emel = emel; u.gaji = v.gaji; u.peranan = v.peranan; u.aktif = v.aktif !== false; }
+      else Mock._u.push({ nama: v.nama.toUpperCase(), emel: emel, gaji: v.gaji, peranan: v.peranan, aktif: v.aktif !== false, pw: '', terakhir: '' });
+      return Mock._list();
+    },
+    resetKataLaluan: function (t, e) { Mock._sup(t); Mock._find(e).pw = ''; return Mock._list(); },
+    tetapAksesAdmin: function (t, on, until) { Mock._sup(t); Mock._akses = { on: !!on, hingga: on ? String(until || '').replace('T', ' ').slice(0, 16) : '' }; return Mock._list(); }
   };
 
   /* ═════════════ Tarikh ═════════════ */
@@ -559,7 +623,7 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     return t.replace(new RegExp('(' + rx + ')', 'ig'), '<mark>$1</mark>');
   }
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem('takwim_' + k)); localStorage.setItem('takwim_' + k, JSON.stringify(v)); } catch (e) { return null; } }
-  function sess(k, v) { try { if (v === undefined) return sessionStorage.getItem('takwim_' + k); if (v === null) sessionStorage.removeItem('takwim_' + k); else sessionStorage.setItem('takwim_' + k, v); } catch (e) { return null; } }
+  function sess(k, v) { try { if (v === undefined) return localStorage.getItem('takwim_' + k); if (v === null) localStorage.removeItem('takwim_' + k); else localStorage.setItem('takwim_' + k, v); } catch (e) { return null; } }
   function catOf(k) { return S.catMap[k] || { kod: k, nama: 'Other', warna: '#5B6983' }; }
   function toast(msg, bad) {
     $$('.toast').forEach(function (x) { x.remove(); });
@@ -598,7 +662,7 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     $$('[data-sub]').forEach(function (e) { e.textContent = t.subtajuk + ' · ' + t.tahun; });
     document.title = t.nama;
 
-    $('[data-nav]').innerHTML = VIEWS.map(function (v) {
+    $('[data-nav]').innerHTML = VIEWS.concat(isSuper() ? [['pengguna', 'Users & access']] : []).map(function (v) {
       return '<button class="navbtn" type="button" data-view="' + v[0] + '"' + (S.view === v[0] ? ' aria-current="page"' : '') + '>' + ICON[v[0]] + v[1] + (/semak|tarikh/.test(v[0]) ? '<span class="newtag">NEW</span>' : '') + '</button>';
     }).join('');
     $('[data-bnav]').innerHTML = VIEWS.filter(function (v) { return v[0] !== 'tahun'; }).map(function (v) {
@@ -611,29 +675,35 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
       return '<button class="catbtn" type="button" data-cat="' + esc(k.kod) + '" aria-pressed="' + (!S.off[k.kod]) + '" style="--c:' + esc(k.warna) + '"><span class="sw">' + ICON.tick + '</span>' + esc(k.nama) + '<span class="n">' + (counts[k.kod] || 0) + '</span></button>';
     }).join('');
 
-    var ed = !!S.sesi;
+    var ed = !!S.sesi, sup = ed && S.sesi.peranan === 'SUPER ADMIN';
     $('[data-who]').innerHTML = ed
-      ? '<span class="who-l">Editor mode</span><span class="who-n">' + esc(S.sesi.nama) + '</span><button class="sbtn" type="button" data-logout>Sign out</button>'
+      ? '<span class="role' + (sup ? ' sup' : '') + '">' + esc(S.sesi.peranan || 'ADMIN') + '</span><span class="who-n">' + esc(S.sesi.nama) + '</span>' +
+        '<span class="st"><i class="' + (sup || aksesBuka() ? 'on' : '') + '"></i>' + (sup ? 'You can change any event' : aksesBuka() ? 'Editing open' + (S.akses.hingga ? ' until ' + esc(fmtDT(S.akses.hingga)) : '') : 'Editing closed by super admin') + '</span>' +
+        '<div class="row"><button class="sbtn" type="button" data-chpw>Password</button><button class="sbtn" type="button" data-logout>Sign out</button></div>'
       : '<span class="who-l">Public view</span><button class="sbtn" type="button" data-login>' + ICON.lock + 'Editor sign in</button>';
-    $('[data-mlogin]').innerHTML = ed ? 'Sign out' : ICON.lock + ' Editor';
-    $('[data-mlogin]').setAttribute(ed ? 'data-logout' : 'data-login', '');
-    $('[data-mlogin]').removeAttribute(ed ? 'data-login' : 'data-logout');
-    $('[data-add]').hidden = !ed;
-    $('[data-fab]').hidden = !ed;
+    $('[data-mlogin]').innerHTML = ed ? ICON.users.replace('width="20" height="20"', 'width="16" height="16"') + ' Account' : ICON.lock + ' Sign in';
+    $('[data-mlogin]').setAttribute(ed ? 'data-account' : 'data-login', '');
+    $('[data-mlogin]').removeAttribute(ed ? 'data-login' : 'data-account');
+    $('[data-add]').hidden = !canAdd();
+    $('[data-fab]').hidden = !canAdd();
   }
 
   function render() {
     renderChrome();
     var c = $('[data-content]');
     var narrow = matchMedia('(max-width: 720px)').matches;
-    if (S.view === 'semak') c.innerHTML = viewCheck();
+    if (S.view === 'pengguna' && !isSuper()) S.view = 'bulan';
+    if (S.view === 'pengguna') c.innerHTML = viewUsers();
+    else if (S.view === 'semak') c.innerHTML = viewCheck();
     else if (S.view === 'tarikh') c.innerHTML = viewDeadlines();
     else if (S.view === 'langgan') c.innerHTML = viewSubscribe();
     else if (S.view === 'bulan') c.innerHTML = viewMonth(narrow);
     else if (S.view === 'senarai') c.innerHTML = viewAgenda();
     else c.innerHTML = viewYear();
-    $('[data-pager]').style.visibility = /senarai|semak|tarikh|langgan/.test(S.view) ? 'hidden' : 'visible';
-    $('.search').style.visibility = /semak|langgan/.test(S.view) ? 'hidden' : 'visible';
+    $('[data-pager]').style.visibility = /senarai|semak|tarikh|langgan|pengguna/.test(S.view) ? 'hidden' : 'visible';
+    $('.search').style.visibility = /semak|langgan|pengguna/.test(S.view) ? 'hidden' : 'visible';
+    var cb = $('[data-closedbar]');
+    if (cb) cb.hidden = !(S.sesi && S.sesi.peranan === 'ADMIN' && !S.sesi.tukar && !aksesBuka());
     if (S.view === 'senarai' && !S.q && !S._scrolled) {
       S._scrolled = true;
       var tgt = $('[data-anchor]', c);
@@ -710,7 +780,7 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
       var wi2 = weekInfo(S.selDay);
       h += '<div class="daypanel"><div class="ag-m"><h2>' + fmt(S.selDay, 'long') + '</h2>' + (wi2 && wi2.minggu ? '<span>Week ' + esc(wi2.minggu) + (wi2.putaran ? ' · ' + esc(wi2.putaran) : '') + '</span>' : '') + '</div><div style="height:12px"></div>' +
         (de.length ? '<div class="ag-d" style="grid-template-columns:1fr"><div class="ag-list">' + de.map(evRow).join('') + '</div></div>'
-          : '<div class="empty"><b>No events</b>Tap another date on the calendar.' + (S.sesi ? '<div style="margin-top:12px"><button class="btn pri" type="button" data-addon="' + S.selDay + '">Add event</button></div>' : '') + '</div>') + '</div>';
+          : '<div class="empty"><b>No events</b>Tap another date on the calendar.' + (canAdd() ? '<div style="margin-top:12px"><button class="btn pri" type="button" data-addon="' + S.selDay + '">Add event</button></div>' : '') + '</div>') + '</div>';
     }
     return h;
   }
@@ -806,11 +876,13 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
         '<a href="' + gcalLink(a) + '" target="_blank" rel="noopener"><i style="background:#1A73E8"></i>Google Calendar</a>' +
         '<a href="' + outlookLink(a) + '" target="_blank" rel="noopener"><i style="background:#0F6CBD"></i>Outlook</a>' +
         '<button type="button" data-ics1="' + esc(a.id) + '"><i style="background:#5B6983"></i>iPhone / other (.ics)</button></div></div>' +
-      (a.oleh ? '<div class="byline">Updated by ' + esc(a.oleh) + (a.pada ? ' · ' + esc(a.pada) : '') + '</div>' : '') +
+      (a.pemilik ? '<div class="byline">Added by ' + esc(a.pemilik) + (a.oleh && a.oleh !== a.pemilik ? ' · last updated by ' + esc(a.oleh) : '') + (a.pada ? ' · ' + esc(a.pada) : '') + '</div>' : a.oleh ? '<div class="byline">Updated by ' + esc(a.oleh) + (a.pada ? ' · ' + esc(a.pada) : '') + '</div>' : '') +
       (confirmDel ? '<div class="confirm"><div><b>Delete this event?</b> This is recorded in the log and cannot be undone from the app.</div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" type="button" data-ev="' + esc(a.id) + '">Cancel</button><button class="btn pri" type="button" data-dodel="' + esc(a.id) + '">Yes, delete</button></div></div>' : '') +
       '</div><div class="dlg-f">' +
       '<span style="margin-right:auto"></span>' +
-      (S.sesi && !confirmDel ? '<button class="btn dng" type="button" data-del="' + esc(a.id) + '">Delete</button><button class="btn" type="button" data-dup="' + esc(a.id) + '">Duplicate</button><button class="btn navy" type="button" data-edit="' + esc(a.id) + '">Edit</button>' : '') +
+      (!confirmDel && canEdit(a) ? '<button class="btn dng" type="button" data-del="' + esc(a.id) + '">Delete</button>' : '') +
+      (!confirmDel && canAdd() ? '<button class="btn" type="button" data-dup="' + esc(a.id) + '">Duplicate</button>' : '') +
+      (!confirmDel && canEdit(a) ? '<button class="btn navy" type="button" data-edit="' + esc(a.id) + '">Edit</button>' : '') +
       '</div>';
     openDlg(h);
   }
@@ -819,7 +891,7 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     var list = onDay(visible(), dI), wi = weekInfo(dI);
     var h = '<div class="dlg-h"><h3>' + fmt(dI, 'long') + (wi && wi.minggu ? '<div style="font-size:13px;color:var(--muted);font-weight:600;margin-top:2px">Week ' + esc(wi.minggu) + (wi.putaran ? ' · ' + esc(wi.putaran) : '') + '</div>' : '') + '</h3>' + XBTN + '</div><div class="dlg-b">' +
       (list.length ? '<div class="daylist">' + list.map(evRow).join('') + '</div>' : '<div class="empty" style="padding:28px 12px"><b>No events</b>There are no events on this date.</div>') +
-      '</div><div class="dlg-f">' + (S.sesi ? '<button class="btn pri" type="button" data-addon="' + dI + '">Add event on this date</button>' : '<button class="btn" type="button" data-close>Close</button>') + '</div>';
+      '</div><div class="dlg-f">' + (canAdd() ? '<button class="btn pri" type="button" data-addon="' + dI + '">Add event on this date</button>' : '<button class="btn" type="button" data-close>Close</button>') + '</div>';
     openDlg(h);
   }
 
@@ -841,12 +913,33 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     openDlg(h);
   }
 
+  function fmtDT(s) { if (!s) return ''; var p = String(s).replace('T', ' ').split(' '); return fmt(p[0]) + ' ' + P(p[0]).getFullYear() + (p[1] ? ', ' + p[1] : ''); }
+  function pwField(name, label, ac, af) {
+    return '<div class="fld"><label for="pw-' + name + '">' + label + '</label><div class="fldpw"><input id="pw-' + name + '" name="' + name + '" type="password" autocomplete="' + ac + '" style="width:100%;padding-right:64px"' + (af ? ' autofocus' : '') + '><button type="button" data-peek="pw-' + name + '">Show</button></div></div>';
+  }
   function showLogin() {
-    openDlg('<div class="dlg-h"><h3>&nbsp;</h3>' + XBTN + '</div><div class="dlg-b" style="text-align:center;padding-top:0">' +
-      '<div class="lock">' + ICON.lock.replace('width="16" height="16"', 'width="24" height="24"') + '</div><h3 style="margin:10px 0 4px;font-size:19px">Editor sign in</h3>' +
-      '<p style="margin:0;color:var(--muted);font-size:13.5px">Enter your PIN to add, edit or delete events.</p>' +
-      '<form data-loginform class="pin"><input type="password" inputmode="numeric" autocomplete="off" maxlength="12" data-pin autofocus aria-label="PIN"></form><div class="err" data-err></div></div>' +
+    openDlg('<div class="dlg-h"><h3>&nbsp;</h3>' + XBTN + '</div><div class="dlg-b" style="padding-top:0">' +
+      '<div style="text-align:center"><div class="lock">' + ICON.lock.replace('width="16" height="16"', 'width="24" height="24"') + '</div><h3 style="margin:10px 0 4px;font-size:19px">Editor sign in</h3>' +
+      '<p style="margin:0 0 14px;color:var(--muted);font-size:13.5px">For staff who add or update calendar events.</p></div>' +
+      '<form data-loginform class="form"><div class="fld"><label for="li-e">MARA email</label><input id="li-e" name="emel" type="email" autocomplete="username" placeholder="name@mara.gov.my" autofocus value="' + esc(sess('emel') || '') + '"></div>' +
+      pwField('pw', 'Password', 'current-password') + '<button type="submit" hidden></button></form>' +
+      '<div class="hint" style="margin-top:8px">First time? Your password is your staff number (No. Gaji). You will be asked to change it.</div><div class="hint">Forgot your password? Ask the super admin to reset it.</div><div class="err" data-err style="margin-top:6px"></div></div>' +
       '<div class="dlg-f"><button class="btn" type="button" data-close>Cancel</button><button class="btn navy" type="button" data-dologin>Sign in</button></div>', 'sm');
+  }
+  function showChangePw(forced) {
+    openDlg('<div class="dlg-h"><h3>' + (forced ? 'Set your own password' : 'Change password') + '</h3>' + (forced ? '' : XBTN) + '</div><div class="dlg-b">' +
+      (forced ? '<p style="margin:0 0 12px;font-size:13.5px;color:var(--ink2)">Welcome, ' + esc(S.sesi.nama) + '. Before you continue, replace the first password (your staff number) with one only you know.</p>' : '') +
+      '<form data-pwform class="form">' + pwField('lama', forced ? 'Current password (staff number)' : 'Current password', 'current-password', true) + pwField('baru', 'New password', 'new-password') + pwField('ulang', 'Type the new password again', 'new-password') + '<button type="submit" hidden></button></form>' +
+      '<div class="hint" style="margin-top:8px">At least 8 characters, with letters and numbers. Not your staff number.</div><div class="err" data-err style="margin-top:6px"></div></div>' +
+      '<div class="dlg-f">' + (forced ? '<button class="btn ghost" type="button" data-logout>Sign out</button>' : '<button class="btn" type="button" data-close>Cancel</button>') + '<button class="btn navy" type="button" data-dochpw>Save password</button></div>', 'sm');
+    if (forced) { var sc = $('[data-scrim]'); if (sc) sc.removeAttribute('data-scrim'); }
+  }
+  function showAccount() {
+    var sup = S.sesi.peranan === 'SUPER ADMIN';
+    openDlg('<div class="dlg-h"><h3>' + esc(S.sesi.nama) + '<div style="font-size:13px;color:var(--muted);font-weight:600;margin-top:2px">' + esc(S.sesi.emel || '') + '</div></h3>' + XBTN + '</div><div class="dlg-b">' +
+      '<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px"><span class="tag ' + (sup ? 'sup' : 'adm') + '">' + esc(S.sesi.peranan) + '</span><span style="font-size:13px;color:var(--muted)">' + (sup ? 'You can change any event and manage users.' : aksesBuka() ? 'Editing is open' + (S.akses.hingga ? ' until ' + esc(fmtDT(S.akses.hingga)) : '') + '. You can add events and change the ones you added.' : 'Editing is closed by the super admin.') + '</span></div>' +
+      '<div style="display:flex;flex-direction:column;gap:8px">' + (sup ? '<button class="btn" type="button" data-view="pengguna" data-closeafter>' + ICON.users + 'Users &amp; access</button>' : '') +
+      '<button class="btn" type="button" data-chpw>' + ICON.lock + 'Change password</button><button class="btn dng" type="button" data-logout>Sign out</button></div></div>', 'sm');
   }
 
   function showFilters() {
@@ -856,8 +949,13 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
   }
 
   /* ═════════════ Tindakan ═════════════ */
+  function isSuper() { return !!(S.sesi && S.sesi.peranan === 'SUPER ADMIN' && !S.sesi.tukar); }
+  function aksesBuka() { return !!(S.akses && S.akses.buka); }
+  function canAdd() { return !!(S.sesi && S.sesi.peranan && !S.sesi.tukar && (isSuper() || aksesBuka())); }
+  function canEdit(a) { return !!(a && canAdd() && (isSuper() || (a.pk && a.pk === S.sesi.pk))); }
   function setData(d) {
     S.data = d;
+    if (d.akses) S.akses = d.akses;
     d.acara.forEach(function (a) { a.tajuk = String(a.tajuk || '').replace(/\s+/g, ' ').trim().toUpperCase(); });
     S.catMap = {}; d.kategori.forEach(function (k) { S.catMap[k.kod] = k; });
     S.weekMap = {}; d.minggu.forEach(function (w) { S.weekMap[w.mula] = w; });
@@ -936,7 +1034,7 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     var right = '<div class="verdict ' + res.lvl + '"><span class="vi">' + V[0] + '</span><div><h3>' + V[1] + '</h3><p><b>' + fmt(ck.d, 'long') + '</b> · ' + (ck.g === 'Both' ? 'Both years' : ck.g) + ' · ' + (ck.k === 'test' ? 'Test' : 'Programme') + '</p><p>' + V[2] + '</p></div></div>' +
       (res.R.length ? '<div class="card"><h3>Why</h3><div class="cs">What is already on the calendar</div>' + res.R.map(function (r) { return '<div class="reason"><span class="dot" style="background:' + (r[0] === 'bad' ? '#B3261E' : '#C2720C') + '">!</span><span>' + esc(r[1]) + '</span></div>'; }).join('') + '</div>' : '') +
       (sug.length ? '<div class="card" style="margin-top:18px"><h3>Free days nearby</h3><div class="cs">No assessments or events for ' + (ck.g === 'Both' ? 'students' : ck.g) + ', not a holiday</div><div class="sugg">' + sug.map(function (dI) { var w2 = weekInfo(dI); return '<button type="button" data-ckday="' + dI + '">' + fmt(dI) + '<small>' + (w2 && w2.minggu ? 'Week ' + esc(w2.minggu) : '') + (w2 && w2.putaran ? ' · ' + esc(w2.putaran) : '') + '</small></button>'; }).join('') + '</div></div>' : '') +
-      (res.lvl === 'ok' && S.sesi ? '<div style="margin-top:14px"><button class="btn pri" type="button" data-addon="' + ck.d + '">Add it to the calendar</button></div>' : '');
+      (res.lvl === 'ok' && canAdd() ? '<div style="margin-top:14px"><button class="btn pri" type="button" data-addon="' + ck.d + '">Add it to the calendar</button></div>' : '');
     return '<div class="ck"><div>' + left + strip + '</div><div>' + right + '</div></div>';
   }
 
@@ -980,18 +1078,95 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     else { btn.disabled = false; if (btn._t) btn.innerHTML = btn._t; }
   }
 
+  function setSesi(r) {
+    S.sesi = r; if (r.akses) S.akses = r.akses;
+    sess('tok', r.token); sess('nama', r.nama); sess('emel', r.emel);
+  }
   function doLogin(btn) {
-    var pin = $('[data-pin]').value.trim();
-    if (!pin) { $('[data-err]').textContent = 'Please enter your PIN.'; return; }
+    var f = $('[data-loginform]'), em = f.emel.value.trim(), pw = f.pw.value;
+    if (!em || !pw) { $('[data-err]').textContent = 'Enter your email and password.'; return; }
     busy(btn, true, 'Checking…');
-    call('logMasuk', [pin]).then(function (r) {
-      S.sesi = r; sess('tok', r.token); sess('nama', r.nama);
-      closeDlg(); render(); toast('Welcome, ' + r.nama.split(' ')[0] + '. Editor mode is on.');
-    }, function (e) { busy(btn, false); $('[data-err]').textContent = errMsg(e); $('[data-pin]').select(); });
+    call('logMasuk', [em, pw]).then(function (r) {
+      setSesi(r); closeDlg(); render();
+      if (r.tukar) return showChangePw(true);
+      toast('Welcome, ' + r.nama.split(' ')[0] + '.');
+    }, function (e) { busy(btn, false); $('[data-err]').textContent = errMsg(e); f.pw.select(); });
+  }
+  function doChangePw(btn) {
+    var f = $('[data-pwform]'), lama = f.lama.value, baru = f.baru.value, ulang = f.ulang.value;
+    var err = !lama ? 'Enter your current password.' : baru.length < 8 ? 'The new password needs at least 8 characters.' : !/[A-Za-z]/.test(baru) || !/[0-9]/.test(baru) ? 'Use both letters and numbers.' : baru !== ulang ? 'The two new passwords do not match.' : '';
+    if (err) { $('[data-err]').textContent = err; return; }
+    busy(btn, true, 'Saving…');
+    call('tukarKataLaluan', [sess('tok'), lama, baru]).then(function (r) {
+      setSesi(r); closeDlg(); render(); toast('Password saved. You are signed in as ' + r.peranan.toLowerCase() + '.');
+    }, function (e) { busy(btn, false); $('[data-err]').textContent = errMsg(e); });
+  }
+  function doLogout() {
+    var t = sess('tok');
+    if (t) call('logKeluar', [t]).catch(function () {});
+    S.sesi = null; S.users = null; sess('tok', null); sess('nama', null);
+    if (S.view === 'pengguna') S.view = 'bulan';
+    closeDlg(); render(); toast('You have signed out.');
+  }
+  function sessionLost(e) {
+    if (/Session expired|change your password/.test(errMsg(e))) {
+      if (/change your password/.test(errMsg(e)) && S.sesi) { S.sesi.tukar = true; closeDlg(); return showChangePw(true); }
+      S.sesi = null; sess('tok', null); renderChrome();
+    }
   }
 
-  function doLogout() {
-    S.sesi = null; sess('tok', null); sess('nama', null); render(); toast('You have signed out.');
+  /* ── Users & access (super admin) ── */
+  function loadUsers() {
+    S.usersLoading = true;
+    call('senaraiPengguna', [sess('tok')]).then(function (r) { S.usersLoading = false; S.users = r.users; S.akses = r.akses; if (S.view === 'pengguna') render(); },
+      function (e) { S.usersLoading = false; toast(errMsg(e), true); sessionLost(e); });
+  }
+  function viewUsers() {
+    $('[data-title]').textContent = 'Users & access';
+    $('[data-subtitle]').innerHTML = '<span>Super admin only</span>';
+    if (!S.users) { if (!S.usersLoading) loadUsers(); return '<div class="loading"><div class="spin dk"></div>Loading users…</div>'; }
+    var a = S.akses || {}, me = S.sesi.emel;
+    var acc = '<div class="card" style="margin-bottom:18px"><h3>Admin editing</h3><div class="cs">When this is off, admins can only view. Super admins can always edit.</div>' +
+      '<div class="switch"><button class="tg" type="button" data-tgl aria-pressed="' + !!a.on + '" aria-label="Admin editing"></button><div><div class="acc-big">' + (a.buka ? 'Open' : a.on ? 'Closed (time is up)' : 'Closed') + '</div>' +
+      '<div class="hint">' + (a.on && a.hingga ? 'Closes automatically on ' + esc(fmtDT(a.hingga)) : a.on ? 'Open until you turn it off' : 'Admins cannot add or change events') + '</div></div></div>' +
+      '<div class="row2" style="margin-top:14px;align-items:end"><div class="fld"><label for="acc-u">Close automatically on <span style="font-weight:500;color:var(--muted)">(optional)</span></label><input id="acc-u" type="datetime-local" data-until value="' + esc(String(a.hingga || '').replace(' ', 'T')) + '"></div>' +
+      '<div><button class="btn navy" type="button" data-saveacc>' + (a.on ? 'Save closing time' : 'Open editing until this time') + '</button></div></div></div>';
+    var rows = S.users.map(function (u) {
+      var st = !u.aktif ? '<span class="tag off">Inactive</span>' : u.tukar ? '<span class="tag wait">First sign-in pending</span>' : '<span class="tag">Active</span>';
+      var role = '<span class="tag ' + (u.peranan === 'SUPER ADMIN' ? 'sup' : 'adm') + '">' + esc(u.peranan) + '</span>';
+      var act = '<div class="acts"><button class="btn" type="button" data-uedit="' + esc(u.emel) + '">Edit</button>' + (u.emel !== me ? '<button class="btn" type="button" data-ureset="' + esc(u.emel) + '">Reset password</button>' : '') + '</div>';
+      return { tr: '<tr><td><div class="nm">' + esc(u.nama) + (u.emel === me ? ' <span class="tag">You</span>' : '') + '</div><div class="em">' + esc(u.emel) + '</div></td><td>' + esc(u.gaji) + '</td><td>' + role + '</td><td>' + st + (u.terakhir ? '<div class="em" style="margin-top:3px">Last sign-in ' + esc(u.terakhir) + '</div>' : '') + '</td><td>' + act + '</td></tr>',
+               card: '<div class="ucard"><div><div class="nm" style="font-weight:800">' + esc(u.nama) + (u.emel === me ? ' <span class="tag">You</span>' : '') + '</div><div class="em" style="color:var(--muted);font-size:12.5px">' + esc(u.emel) + ' · ' + esc(u.gaji) + '</div></div><div style="display:flex;gap:6px;flex-wrap:wrap">' + role + st + '</div>' + act + '</div>' };
+    });
+    return acc + '<div class="card" style="padding:0;overflow:hidden"><div style="display:flex;align-items:center;gap:10px;padding:16px 18px"><div><h3>Users</h3><div class="cs" style="margin:0">' + S.users.length + ' accounts · first password is the staff number</div></div><button class="btn pri" type="button" data-uadd style="margin-left:auto">+ Add user</button></div>' +
+      '<table class="ulist"><thead><tr><th>Name</th><th>Staff no.</th><th>Role</th><th>Status</th><th></th></tr></thead><tbody>' + rows.map(function (r) { return r.tr; }).join('') + '</tbody></table>' +
+      '<div class="ucards" style="padding:0 12px 12px">' + rows.map(function (r) { return r.card; }).join('') + '</div></div>';
+  }
+  function showUserForm(u) {
+    var isNew = !u; u = u || { peranan: 'ADMIN', aktif: true };
+    var self = u.emel && u.emel === S.sesi.emel;
+    openDlg('<div class="dlg-h"><h3>' + (isNew ? 'Add user' : 'Edit user') + '</h3>' + XBTN + '</div><form class="dlg-b form" data-uform novalidate>' +
+      '<input type="hidden" name="asal" value="' + esc(u.emel || '') + '">' +
+      '<div class="fld"><label for="u-n">Full name</label><input id="u-n" name="nama" value="' + esc(u.nama || '') + '" autofocus></div>' +
+      '<div class="fld"><label for="u-e">MARA email</label><input id="u-e" name="emel" type="email" value="' + esc(u.emel || '') + '" placeholder="name@mara.gov.my"></div>' +
+      '<div class="fld"><label for="u-g">Staff number (No. Gaji)</label><input id="u-g" name="gaji" value="' + esc(u.gaji || '') + '"><span class="hint">' + (isNew ? 'This is their first password. They must change it when they sign in.' : 'Used as the password again only after "Reset password".') + '</span></div>' +
+      '<div class="fld"><label>Role</label><div class="seg2">' + [['ADMIN', 'Admin'], ['SUPER ADMIN', 'Super admin']].map(function (x) { return '<button type="button" data-urole="' + x[0] + '" aria-pressed="' + (u.peranan === x[0]) + '"' + (self ? ' disabled' : '') + '>' + x[1] + '</button>'; }).join('') + '</div>' +
+      '<span class="hint">Admin: adds events, and changes only their own while editing is open. Super admin: everything.</span><input type="hidden" name="peranan" value="' + esc(u.peranan) + '"></div>' +
+      (isNew ? '' : '<div class="fld"><label>Account</label><div class="seg2">' + [['1', 'Active'], ['0', 'Inactive']].map(function (x) { return '<button type="button" data-uact="' + x[0] + '" aria-pressed="' + ((u.aktif ? '1' : '0') === x[0]) + '"' + (self ? ' disabled' : '') + '>' + x[1] + '</button>'; }).join('') + '</div><input type="hidden" name="aktif" value="' + (u.aktif ? '1' : '0') + '"></div>') +
+      '<div class="err" data-err></div></form><div class="dlg-f"><button class="btn" type="button" data-close>Cancel</button><button class="btn pri" type="button" data-usave>' + (isNew ? 'Add user' : 'Save changes') + '</button></div>');
+  }
+  function doSaveUser(btn) {
+    var f = $('[data-uform]');
+    var v = { asal: f.asal.value, nama: f.nama.value.trim(), emel: f.emel.value.trim(), gaji: f.gaji.value.trim(), peranan: f.peranan.value, aktif: f.aktif ? f.aktif.value === '1' : true };
+    busy(btn, true, 'Saving…');
+    call('simpanPengguna', [sess('tok'), v]).then(function (r) { S.users = r.users; S.akses = r.akses; closeDlg(); render(); toast(v.asal ? 'User updated.' : 'User added. First password: their staff number.'); },
+      function (e) { busy(btn, false); $('[data-err]').textContent = errMsg(e); sessionLost(e); });
+  }
+  function doSaveAccess(on, btn) {
+    var until = ($('[data-until]') || {}).value || '';
+    busy(btn, true);
+    call('tetapAksesAdmin', [sess('tok'), on, until]).then(function (r) { S.users = r.users; S.akses = r.akses; render(); toast(r.akses.buka ? 'Admin editing is open.' : 'Admin editing is closed.'); },
+      function (e) { busy(btn, false); toast(errMsg(e), true); sessionLost(e); });
   }
 
   function doSave(btn) {
@@ -1004,13 +1179,13 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
       setData(d); closeDlg();
       S.cursor = new Date(P(v.mula).getFullYear(), P(v.mula).getMonth(), 1); S.selDay = v.mula;
       render(); toast(v.id ? 'Changes saved.' : 'Event added.');
-    }, function (e) { busy(btn, false); $('[data-err]').textContent = errMsg(e); if (/Session expired|Sesi tamat/.test(errMsg(e))) { S.sesi = null; sess('tok', null); renderChrome(); } });
+    }, function (e) { busy(btn, false); $('[data-err]').textContent = errMsg(e); sessionLost(e); });
   }
 
   function doDelete(id, btn) {
     busy(btn, true, 'Deleting…');
     call('padamAcara', [sess('tok'), id]).then(function (d) { setData(d); closeDlg(); render(); toast('Event deleted.'); },
-      function (e) { busy(btn, false); toast(errMsg(e), true); });
+      function (e) { busy(btn, false); toast(errMsg(e), true); sessionLost(e); });
   }
 
   function downloadIcs(only) {
@@ -1047,6 +1222,9 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
   }
 
   /* ═════════════ Peristiwa ═════════════ */
+  var downOnScrim = false;
+  document.addEventListener('mousedown', function (e) { downOnScrim = !!(e.target && e.target.hasAttribute && e.target.hasAttribute('data-scrim')); }, true);
+  document.addEventListener('touchstart', function (e) { downOnScrim = !!(e.target && e.target.hasAttribute && e.target.hasAttribute('data-scrim')); }, { capture: true, passive: true });
   document.addEventListener('click', function (e) {
     var t = e.target.closest('button, a, [data-day], [data-scrim]');
     var menu = $('[data-menu]');
@@ -1054,9 +1232,10 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
     if (!t) return;
     var d = t.dataset;
 
-    if (t.hasAttribute('data-scrim')) { if (e.target === t) closeDlg(); return; }
+    if (t.hasAttribute('data-scrim')) { if (e.target === t && downOnScrim) closeDlg(); return; }
     if ('close' in d) return closeDlg();
     if ('menubtn' in d) { menu.hidden = !menu.hidden; return; }
+    if (d.view === 'pengguna') { closeDlg(); S.users = null; }
     if (d.view) { S.view = d.view; S._scrolled = false; store('view', S.view); window.scrollTo(0, 0); return render(); }
     if (d.ev) return showEvent(d.ev);
     if (d.cat) { S.off[d.cat] = !S.off[d.cat]; store('off', S.off); render(); if ($('[data-layer] .dlg')) showFilters(); return; }
@@ -1079,6 +1258,21 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
       if (matchMedia('(max-width: 720px)').matches && !t.classList.contains('more')) { S.selDay = d.day; render(); var dp = $('.daypanel'); if (dp) dp.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
       return showDay(d.day);
     }
+    if (d.peek) { var pi = document.getElementById(d.peek); pi.type = pi.type === 'password' ? 'text' : 'password'; t.textContent = pi.type === 'password' ? 'Show' : 'Hide'; return; }
+    if ('account' in d) return showAccount();
+    if ('chpw' in d) return showChangePw(false);
+    if ('dochpw' in d) return doChangePw(t);
+    if (d.urole) { if (t.disabled) return; $$('[data-urole]').forEach(function (b) { b.setAttribute('aria-pressed', b === t); }); $('[data-uform]').peranan.value = d.urole; return; }
+    if (d.uact) { if (t.disabled) return; $$('[data-uact]').forEach(function (b) { b.setAttribute('aria-pressed', b === t); }); $('[data-uform]').aktif.value = d.uact; return; }
+    if ('uadd' in d) return showUserForm(null);
+    if (d.uedit) return showUserForm(S.users.filter(function (u) { return u.emel === d.uedit; })[0]);
+    if ('usave' in d) return doSaveUser(t);
+    if (d.ureset) {
+      if (t.dataset.sure !== '1') { t.dataset.sure = '1'; t.textContent = 'Tap again to reset'; t.classList.add('dng'); return; }
+      busy(t, true); return call('resetKataLaluan', [sess('tok'), d.ureset]).then(function (r) { S.users = r.users; render(); toast('Password reset. They sign in with their staff number and choose a new one.'); }, function (e) { busy(t, false); toast(errMsg(e), true); sessionLost(e); });
+    }
+    if ('tgl' in d) return doSaveAccess(t.getAttribute('aria-pressed') !== 'true', t);
+    if ('saveacc' in d) return doSaveAccess(true, t);
     if ('login' in d) return showLogin();
     if ('logout' in d) return doLogout();
     if ('dologin' in d) return doLogin(t);
@@ -1098,10 +1292,12 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
   document.addEventListener('submit', function (e) {
     e.preventDefault();
     if (e.target.matches('[data-loginform]')) doLogin($('[data-dologin]'));
+    if (e.target.matches('[data-pwform]')) doChangePw($('[data-dochpw]'));
+    if (e.target.matches('[data-uform]')) doSaveUser($('[data-usave]'));
     if (e.target.matches('[data-form]')) doSave($('[data-save]'));
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { if ($('[data-layer] .dlg')) closeDlg(); else $('[data-menu]').hidden = true; }
+    if (e.key === 'Escape') { if ($('[data-layer] .dlg') && !(S.sesi && S.sesi.tukar)) closeDlg(); else $('[data-menu]').hidden = true; }
     if (e.key === 'Enter' && e.target.matches('[data-form] input')) { e.preventDefault(); doSave($('[data-save]')); }
     if ($('[data-layer] .dlg') || /INPUT|TEXTAREA|SELECT/.test(e.target.tagName) || !S.data) return;
     if (e.key === 'ArrowLeft') $('[data-prev]').click();
@@ -1131,12 +1327,15 @@ mark{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 1px}
   S.off = store('off') || {};
   var tok = sess('tok');
   if (tok) {
-    S.sesi = { nama: sess('nama') || '' };
-    call('semakSesi', [tok]).then(function (r) { if (!r) { S.sesi = null; sess('tok', null); } else S.sesi = r; if (S.data) renderChrome(); }, function () {});
+    call('semakSesi', [tok]).then(function (r) {
+      if (!r) { S.sesi = null; sess('tok', null); } else setSesi(r);
+      if (S.data) render();
+      if (r && r.tukar) showChangePw(true);
+    }, function () {});
   }
   if (PREVIEW) {
     var n = document.createElement('div'); n.className = 'notice';
-    n.innerHTML = '<b>Preview.</b>&nbsp;Changes are not saved to Google Sheets. Demo editor PIN: <b>2027</b>';
+    n.innerHTML = '<b>Preview.</b>&nbsp;Changes are not saved. Sign in as <b>super@kmb.demo</b> (staff no. 1001) or <b>admin@kmb.demo</b> (staff no. 2002).';
     $('[data-content]').parentNode.insertBefore(n, $('[data-content]'));
     n.style.margin = matchMedia('(max-width: 900px)').matches ? '12px 12px 0' : '16px 28px 0';
   }
